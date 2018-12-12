@@ -17,8 +17,10 @@
    Mobile Styles: 0px to 640px 
    ===============================
 */
+
 @media only screen and (max-width: 640px) {
 
+    /* Elements displayed as block */
     table,
     tbody,
     tr,
@@ -28,10 +30,13 @@
         display: block;
     }
 
-    thead th {
+    /* Elements not displayed */
+    thead,
+    h1 {
         display: none;
     }
 
+    /* White text, gray background, font size and larger line height4 */
     caption {
         color: white;
         background: gray;
@@ -39,20 +44,23 @@
         line-height: 2em;
     }
 
+    /* Data cells have a border, blue text, relative position, padding and a 40px height */
     td {
-        border: 1-pixel dotted gray;
+        border: 1px dotted gray;
         color: rgb(11, 12, 145);
         position: relative;
         padding-left: 40%;
         min-height: 40px;
     }
 
+    /* every other table row is colored cream and has a gray border */
     tr:nth-of-type(odd) {
 
         background-color: rgb(255, 235, 178);
         border: 2px solid gray;
     }
 
+    /* Data date labels are placed bofore the calendar content */
     td::before {
         content: attr(data-date);
         position: absolute;
@@ -61,25 +69,69 @@
         width: 40%;
         padding: 5px;
 
-
     }
+}
 
 
 
-    /* =============================================
+/* =============================================
    Tablet and Desktop Styles: greater than 640px
    =============================================
 */
-    @media only screen and (min-width: 641px) {
-        table {
-            background-image: src="lht_photo1"no tiling in the bottom-right corner of the table with a width of 40%,
-                b) adds a 6-pixel double border with color value rgb(154,
-                64,
-                3),
-                c) collapses the table borders,
-                d) centers the table by setting the top/bottom margins to 20 pixels and the left/right margins to auto,
-                e) uses a fixed layout for the table content,
-                and f) sets the width of the table to 85%.
-        }
+@media only screen and (min-width:641px) {
+
+    /* Table has a background image,double brown border, and spacing */
+    table {
+        background-image: url("lht_photo1.png");
+        background-position: right bottom;
+        background-size: 40%;
+        background-repeat: no-repeat;
+        border: 6px double rgb(154, 64, 3);
+        border-collapse: collapse;
+        margin: 20px auto;
+        table-layout: fixed;
+        width: 85%;
+    }
+
+    /* table cells have a border, text aligned on the top, normal weight, and words wrap to the next line */
+    th,
+    td {
+        border: 1px solid gray;
+        font-size: 0.85em;
+        font-weight: normal;
+        padding: 5px;
+        vertical-align: top;
+        width: 14.28%;
+        word-wrap: break-word;
 
     }
+
+    /* data cells have a gray background and blue text */
+    td {
+        background-color: rgba(171, 171, 171, 0.6);
+        color: rgb(11, 12, 145);
+    }
+
+    /* data cells with a feb label and cream with a gray shadow */
+    td[data-date*="Feb"] {
+
+        background-color: rgba(232, 214, 148, 0.6);
+        box-shadow: gray inset 0 0 20px;
+    }
+
+    /* table caption is at the top, centered, and the letters are spaced farther */
+    table caption {
+        position: top;
+        text-align: center;
+        padding-bottom: 10px;
+        font-size: 1.2em;
+        kerning: 3px;
+    }
+
+    /* table headingshave a brown background and white text */
+    thead th {
+        background-color: rgb(154, 64, 3);
+        color: white;
+    }
+
+}
